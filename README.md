@@ -1,1 +1,6 @@
 # MarkovFit
+
+Licence
+Cite
+
+Instructions
