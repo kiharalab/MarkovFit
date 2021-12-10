@@ -18,13 +18,13 @@ Cite:
 
 ### Compile Source Code:
 
-Handle:
+- Handle:
 g++ handle_result.cc -o handle
 
-Pairwise_Scores:
+- Pairwise_Scores:
 make pairwise_scores_mpi
 
-Refinement:
+- Refinement:
 make refine_mpi
 
 ## Project Steps:
