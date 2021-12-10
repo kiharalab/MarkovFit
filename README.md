@@ -58,6 +58,7 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 -p         : Map type: 1 for experimental, 2 for simulated def=1 
            
 ##### Output:
+output_file contains the different transformations applied to subunit map along with goodness-of-fit scores. 
 
 ### Handle and Cluster FFT Search Results:
 ##### Command:
