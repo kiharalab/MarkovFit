@@ -85,21 +85,45 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 
 ### Compute Pairwise Scores of Pairs of Subunits
 ##### Command:
+```sh
+ mpirun -np no_processes ./Pairwise_Scores/pairwise_scores_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_processed_search_result_file --transforms-file subN_processed_search_result_file  --calpha main_pdb --transforms-num no_results_per_subunit;
+```
 ##### Input:
-##### Output:
+    --input-pdb:            Subunit pdb files
+    --labels:               List of subunits IDs separated by comma
+    --transforms-file:      subunit processed search result file 
+    --calpha main_pdb:      native structure pdb file
+    --output-prefix:        Prefix for output files
+    --transforms-num:       no results to be considered for each subunit
 
+##### Output:
+    One .mrf file for each subunit containing RMSD and goodness-of-fit scores for each transformation
+    One .mrf file for each pair of subunits containing RMSD and pairwise scores for each of their transformations
+    
 ### Generate MRF graph and Apply Belief Propagation
 ##### Command:
+```sh
+
+```
+
 ##### Input:
 ##### Output:
 
 ### Extract top10 Final Structures using MaxHeap Tree:
 ##### Command:
+```sh
+
+```
+
 ##### Input:
 ##### Output:
 
 ### Physics-based Refinement
 ##### Command:
+```sh
+
+```
+
 ##### Input:
 ##### Output:
 
