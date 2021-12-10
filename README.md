@@ -89,12 +89,13 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
  mpirun -np no_processes ./Pairwise_Scores/pairwise_scores_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_processed_search_result_file --transforms-file subN_processed_search_result_file  --calpha main_pdb --transforms-num no_results_per_subunit;
 ```
 ##### Input:
+    -np:                    No of processes
     --input-pdb:            Subunit pdb files
     --labels:               List of subunits IDs separated by comma
-    --transforms-file:      subunit processed search result file 
-    --calpha main_pdb:      native structure pdb file
+    --transforms-file:      Subunit processed search result file 
+    --calpha main_pdb:      Native structure pdb file
     --output-prefix:        Prefix for output files
-    --transforms-num:       no results to be considered for each subunit
+    --transforms-num:       No results to be considered for each subunit
 
 ##### Output:
     One .mrf file for each subunit containing RMSD and goodness-of-fit scores for each transformation
@@ -103,27 +104,44 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 ### Generate MRF graph and Apply Belief Propagation
 ##### Command:
 ```sh
-
+R --slave --vanilla --file=./MRF/mrf.R --args "operation='map'" "singletons=c('sub1.mrf',...,'subN.mrf')" "pairwise=c('sub1-sub2.mrf','sub1-sub3.mrf',...,'sub(N-1)-subN.mrf')" "weights=potential.collection.weights(CC=0.5,Overlap=0.9,PhysicsScore=1,no_clashes=0.8)" "output.prefix='mrf'"
 ```
-
 ##### Input:
+    singletons:         List of .mrf files of all subunits
+    pairwise:           List of .mrf files of all pairs of subunits
+    weights:            weights to be used for the goodness-of-fit scores and pairwise scores  
+    output.prefix:      Prefix of the output file
+
 ##### Output:
+    prefix_top100.txt file containing the transformations of subunits and pairs of subunits sorted bt their final beliefs computed by belief propagation algorithm.
 
 ### Extract top10 Final Structures using MaxHeap Tree:
 ##### Command:
 ```sh
-
+python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_clashes -dir pdb_dir;
 ```
-
 ##### Input:
-##### Output:
+    --mrf-file:             File containing the results of MRF and belief propagation 
+    --clash-threshold:      Maximum number of acceptable clashes between pairs of subunits
+    -dir:                   Directory of the native structure pdb files to generate the transformed structures   
 
+##### Output:
+    PDB files of the top 10 structures of each subuint (subID_decoy_MaxHeap_structure#.pdb)
+    File for each subunit containing subunit transformations of the top 10 structures (subID_clashesThreshold_MaxHeap.txt)
+    
 ### Physics-based Refinement
 ##### Command:
 ```sh
-
+ mpirun -np no_processes ./Refinement/refine_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_ID_400_MaxHeap.txt ... --transforms-file subN_ID_400_MaxHeap.txt --calpha main_pdb;
 ```
-
 ##### Input:
-##### Output:
+    -np:                    No of processes max=10
+    --input-pdb:            Subunit pdb files 
+    --labels:               List of subunits IDs separated by comma
+    --transforms-file:      Subunit MaxHeap result file
+    --calpha:               Native structure pdb file
+    --output-prefix:        Prefix for output files
 
+
+##### Output:
+        PDB files of the refined top 10 structures of each subuint (subID_phy_refine_decoy_structure#.pdb)
