@@ -38,7 +38,7 @@ int chkcmdline( int argc, char **argv,CMD *cmd){
     cmd->th2=0.00;
     
     cmd->Mode=1;
-    cmd->Amode=1;
+    cmd->Amode=2;
     cmd->mapType=1;
     
     
