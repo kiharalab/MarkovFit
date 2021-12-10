@@ -16,10 +16,9 @@ Chimera : https://www.cgl.ucsf.edu/chimera/download.html
 FFTW: http://www.fftw.org/download.html
 GCC Compiler
 
-Compile:
+Compile Source Code:
 
 Handle:
-
 g++ handle_result.cc -o handle
 
 Pairwise_Scores:
