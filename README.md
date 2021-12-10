@@ -18,7 +18,8 @@ GCC Compiler
 
 Compile:
 
-Handle: \n
+Handle:
+
 g++ handle_result.cc -o handle
 
 Pairwise_Scores:
