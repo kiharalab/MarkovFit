@@ -10,11 +10,11 @@ Contact: Daisuke Kihara (dkihara@purdue.edu)
 Cite:
 
 ## Pre-required software
-Python 3 : https://www.python.org/downloads/
-EMAN2 : https://blake.bcm.edu/emanwiki/EMAN2/Install/
-Chimera : https://www.cgl.ucsf.edu/chimera/download.html
-FFTW: http://www.fftw.org/download.html
-GCC Compiler
+- Python 3 : https://www.python.org/downloads/
+- EMAN2 : https://blake.bcm.edu/emanwiki/EMAN2/Install/
+- Chimera : https://www.cgl.ucsf.edu/chimera/download.html
+- FFTW: http://www.fftw.org/download.html
+- GCC Compiler
 
 ### Compile Source Code:
 
