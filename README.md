@@ -48,15 +48,21 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 - -T [float] : Threshold of density sub_map def=0.000
 - -c [int  ] : Number of cores for threads def=2
 - -g [float] : Bandwidth of the gaussian filter
+             
              def=16.0, sigma = 0.5*[float]
 - -s [float] : Sampling grid space def=7.0
 - -M [int]   : Sampling Angle interval Mode 1-3 def=2
+             
              1: 20.83 degree,   648 samples
+             
              2: 10.07 degree, 7,416 samples
+             
              3: 4.71 degree, 70,728 samples
 - -C         : Cross Correlation Coefficient and Overlap Mode 
+             
              Using normalized density value by Gaussian Filter
 - -P         : Pearson Correlation Coefficient and Overlap Mode 
+             
              Using normalized density value by Gaussian Filter and average density
 - -p         : Map type: 1 for experimental, 2 for simulated def=1 
            
