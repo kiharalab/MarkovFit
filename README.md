@@ -65,8 +65,23 @@ output_file contains the different transformations applied to subunit map along 
 
 ### Handle and Cluster FFT Search Results:
 ##### Command:
+```sh
+./Handle/handle --dist-threshold max_dist_to_show --min-dist cluster_dist_thrshold --correct-x center_x --correct-y center_y --correct-z center_z --i input_file --o output_file;
+```
 ##### Input:
+    --min-dist:         Distance used for clustering search results 8 def=8
+    --i:                Input file containing FFT search results
+    --o:                Output file to store results after sorting and clustering
+    optional:
+    To print search results and their distance to reference structur after sorting and clustering
+    --correct-x         X value of center of reference/native structure
+    --correct-y         Y value of center of reference/native structure 
+    --correct-z         Z value of center of reference/native structure 
+    --dist-threshold    Show only results with distance < threshold to native structure
+
 ##### Output:
+- output_file containing sorted and clustered results 
+- output_file_b4_clstering containing sorted results before clustering
 
 ### Compute Pairwise Scores of Pairs of Subunits
 ##### Command:
