@@ -31,7 +31,7 @@ make refine_mpi
 
 ## Project Steps:
 ### Generate simulated maps of subunits using EMAN2 package:
-e2pdb2mrc.py --apix=voxel_spacing --res=resolution input_pdb_file output_mrc_file;
+    e2pdb2mrc.py --apix=voxel_spacing --res=resolution input_pdb_file output_mrc_file;
 
 For experimental map fitting: use voxel spacing and resoultion of that map. 
 
@@ -42,23 +42,23 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 ```
 
 ##### Input:
-    -a         : Main map
-    -b         : Subunit map
-    -t [float] : Threshold of density main_map def=0.000
-    -T [float] : Threshold of density sub_map def=0.000
-    -c [int  ] : Number of cores for threads def=2
-    -g [float] : Bandwidth of the gaussian filter
+    -a:          Main map
+    -b:          Subunit map
+    -t [float]:  Threshold of density main_map def=0.000
+    -T [float]:  Threshold of density sub_map def=0.000
+    -c [int  ]:  Number of cores for threads def=2
+    -g [float]:  Bandwidth of the gaussian filter
                  def=16.0, sigma = 0.5*[float]
-    -s [float] : Sampling grid space def=7.0
-    -M [int]   : Sampling Angle interval Mode 1-3 def=2
+    -s [float]:  Sampling grid space def=7.0
+    -M [int]:    Sampling Angle interval Mode 1-3 def=2
                  1: 20.83 degree,   648 samples
                  2: 10.07 degree, 7,416 samples
                  3: 4.71 degree, 70,728 samples
-    -C         : Cross Correlation Coefficient and Overlap Mode 
+    -C:          Cross Correlation Coefficient and Overlap Mode 
                  Using normalized density value by Gaussian Filter
-    -P         : Pearson Correlation Coefficient and Overlap Mode 
+    -P:          Pearson Correlation Coefficient and Overlap Mode 
                  Using normalized density value by Gaussian Filter and average density
-    -p         : Map type: 1 for experimental, 2 for simulated def=1 
+    -p:          Map type: 1 for experimental, 2 for simulated def=1 
            
 ##### Output:
     output_file contains the different transformations applied to subunit map along with goodness-of-fit scores. 
@@ -74,10 +74,10 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
     --o:                Output file to store results after sorting and clustering
     optional:
     To print search results and their distance to reference structur after sorting and clustering
-    --correct-x         X value of center of reference/native structure
-    --correct-y         Y value of center of reference/native structure 
-    --correct-z         Z value of center of reference/native structure 
-    --dist-threshold    Show only results with distance < threshold to native structure
+    --correct-x:        X value of center of reference/native structure
+    --correct-y:        Y value of center of reference/native structure 
+    --correct-z:        Z value of center of reference/native structure 
+    --dist-threshold:   Show only results with distance < threshold to native structure
 
 ##### Output:
     output_file containing sorted and clustered results 
