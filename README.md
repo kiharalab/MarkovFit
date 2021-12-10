@@ -28,7 +28,7 @@ Refinement:
 make refine_mpi
 
 ## Project Steps:
-Generate simulated maps of subunits using EMAN2 package:
+### Generate simulated maps of subunits using EMAN2 package:
 xxx
 
 ### Run FFT Search:
