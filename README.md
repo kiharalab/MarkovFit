@@ -61,7 +61,7 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
     -p         : Map type: 1 for experimental, 2 for simulated def=1 
            
 ##### Output:
-output_file contains the different transformations applied to subunit map along with goodness-of-fit scores. 
+    output_file contains the different transformations applied to subunit map along with goodness-of-fit scores. 
 
 ### Handle and Cluster FFT Search Results:
 ##### Command:
@@ -80,8 +80,8 @@ output_file contains the different transformations applied to subunit map along 
     --dist-threshold    Show only results with distance < threshold to native structure
 
 ##### Output:
-- output_file containing sorted and clustered results 
-- output_file_b4_clstering containing sorted results before clustering
+    output_file containing sorted and clustered results 
+    output_file_b4_clstering containing sorted results before clustering
 
 ### Compute Pairwise Scores of Pairs of Subunits
 ##### Command:
