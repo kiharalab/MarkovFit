@@ -32,33 +32,32 @@ make refine_mpi
 xxx
 
 ### Run FFT Search:
-command
-Input:
-Output:
+##### Command:
+##### Input:
+##### Output:
 
 ### Handle and Cluster FFT Search Results:
-command
-Input:
-Output:
+##### Command:
+##### Input:
+##### Output:
 
 ### Compute Pairwise Scores of Pairs of Subunits
-command
-Input:
-Output:
+##### Command:
+##### Input:
+##### Output:
 
 ### Generate MRF graph and Apply Belief Propagation
-command 
-Input:
-Output:
+##### Command:
+##### Input:
+##### Output:
 
 ### Extract top10 Final Structures using MaxHeap Tree:
-command 
-Input:
-Output:
+##### Command:
+##### Input:
+##### Output:
 
 ### Physics-based Refinement
-command
-Input:
-Output:
-
+##### Command:
+##### Input:
+##### Output:
 
