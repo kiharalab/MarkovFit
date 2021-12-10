@@ -31,14 +31,14 @@ make refine_mpi
 
 ## Project Steps:
 ### Generate simulated maps of subunits using EMAN2 package:
-    e2pdb2mrc.py --apix=voxel_spacing --res=resolution input_pdb_file output_mrc_file;
+    e2pdb2mrc.py --apix=voxel_spacing --res=resolution input_pdb_file output_mrc_file
 
 For experimental map fitting: use voxel spacing and resoultion of that map. 
 
 ### Run FFT Search:
 ##### Command:
 ```sh
-./FFT_Search/EMVEC_FIT_PowerFit -a main_map -b subunit1_mrc_map -t main_map_contour_level -T subunit_map_contour_level -c no_processes -P true -M 2 -s voxel_space -p map_type > output_file;
+./FFT_Search/EMVEC_FIT_PowerFit -a main_map -b subunit1_mrc_map -t main_map_contour_level -T subunit_map_contour_level -c no_processes -P true -M 2 -s voxel_space -p map_type > output_file
 ```
 
 ##### Input:
@@ -66,7 +66,7 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 ### Handle and Cluster FFT Search Results:
 ##### Command:
 ```sh
-./Handle/handle --dist-threshold max_dist_to_show --min-dist cluster_dist_thrshold --correct-x center_x --correct-y center_y --correct-z center_z --i input_file --o output_file;
+./Handle/handle --dist-threshold max_dist_to_show --min-dist cluster_dist_thrshold --correct-x center_x --correct-y center_y --correct-z center_z --i input_file --o output_file
 ```
 ##### Input:
     --min-dist:         Distance used for clustering search results 8 def=8
@@ -86,7 +86,7 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 ### Compute Pairwise Scores of Pairs of Subunits
 ##### Command:
 ```sh
- mpirun -np no_processes ./Pairwise_Scores/pairwise_scores_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_processed_search_result_file --transforms-file subN_processed_search_result_file  --calpha main_pdb --transforms-num no_results_per_subunit;
+ mpirun -np no_processes ./Pairwise_Scores/pairwise_scores_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_processed_search_result_file --transforms-file subN_processed_search_result_file  --calpha main_pdb --transforms-num no_results_per_subunit
 ```
 ##### Input:
     -np:                    No of processes
@@ -118,7 +118,7 @@ R --slave --vanilla --file=./MRF/mrf.R --args "operation='map'" "singletons=c('s
 ### Extract top10 Final Structures using MaxHeap Tree:
 ##### Command:
 ```sh
-python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_clashes -dir pdb_dir;
+python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_clashes -dir pdb_dir
 ```
 ##### Input:
     --mrf-file:             File containing the results of MRF and belief propagation 
@@ -132,7 +132,7 @@ python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_
 ### Physics-based Refinement
 ##### Command:
 ```sh
- mpirun -np no_processes ./Refinement/refine_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_ID_400_MaxHeap.txt ... --transforms-file subN_ID_400_MaxHeap.txt --calpha main_pdb;
+ mpirun -np no_processes ./Refinement/refine_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_ID_400_MaxHeap.txt ... --transforms-file subN_ID_400_MaxHeap.txt --calpha main_pdb
 ```
 ##### Input:
     -np:                    No of processes max=10
