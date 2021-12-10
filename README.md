@@ -17,6 +17,8 @@ Cite:
 - GCC Compiler
 
 ### Compile Source Code:
+- FFT_Search Folder:
+make EMVEC_FIT_PowerFit
 
 - Handle Folder:
 g++ handle_result.cc -o handle
@@ -29,7 +31,9 @@ make refine_mpi
 
 ## Project Steps:
 ### Generate simulated maps of subunits using EMAN2 package:
-xxx
+e2pdb2mrc.py --apix=voxel_spacing --res=resolution input_pdb_file output_mrc_file;
+
+For experimental map fitting: use voxel spacing and resoultion of that map. 
 
 ### Run FFT Search:
 ##### Command:
