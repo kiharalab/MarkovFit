@@ -37,25 +37,28 @@ For experimental map fitting: use voxel spacing and resoultion of that map.
 
 ### Run FFT Search:
 ##### Command:
+```sh
 ./FFT_Search/EMVEC_FIT_PowerFit -a main_map -b subunit1_mrc_map -t main_map_contour_level -T subunit_map_contour_level -c no_processes -P true -M 2 -s voxel_space -p map_type > output_file;
+```
+
 ##### Input:
--a         : Main map
--b         : Subunit map
--t [float] : Threshold of density main_map def=0.000
--T [float] : Threshold of density sub_map def=0.000
--c [int  ] : Number of cores for threads def=2
--g [float] : Bandwidth of the gaussian filter
+- -a         : Main map
+- -b         : Subunit map
+- -t [float] : Threshold of density main_map def=0.000
+- -T [float] : Threshold of density sub_map def=0.000
+- -c [int  ] : Number of cores for threads def=2
+- -g [float] : Bandwidth of the gaussian filter
              def=16.0, sigma = 0.5*[float]
--s [float] : Sampling grid space def=7.0
--M [int]   : Sampling Angle interval Mode 1-3 def=2
+- -s [float] : Sampling grid space def=7.0
+- -M [int]   : Sampling Angle interval Mode 1-3 def=2
              1: 20.83 degree,   648 samples
              2: 10.07 degree, 7,416 samples
              3: 4.71 degree, 70,728 samples
--C         : Cross Correlation Coefficient and Overlap Mode 
+- -C         : Cross Correlation Coefficient and Overlap Mode 
              Using normalized density value by Gaussian Filter
--P         : Pearson Correlation Coefficient and Overlap Mode 
+- -P         : Pearson Correlation Coefficient and Overlap Mode 
              Using normalized density value by Gaussian Filter and average density
--p         : Map type: 1 for experimental, 2 for simulated def=1 
+- -p         : Map type: 1 for experimental, 2 for simulated def=1 
            
 ##### Output:
 output_file contains the different transformations applied to subunit map along with goodness-of-fit scores. 
