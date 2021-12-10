@@ -27,36 +27,36 @@ make pairwise_scores_mpi
 Refinement:
 make refine_mpi
 
-### Project Steps:
+## Project Steps:
 Generate simulated maps of subunits using EMAN2 package:
 xxx
 
-#### Run FFT Search:
+### Run FFT Search:
 command
 Input:
 Output:
 
-#### Handle and Cluster FFT Search Results:
+### Handle and Cluster FFT Search Results:
 command
 Input:
 Output:
 
-#### Compute Pairwise Scores of Pairs of Subunits
+### Compute Pairwise Scores of Pairs of Subunits
 command
 Input:
 Output:
 
-#### Generate MRF graph and Apply Belief Propagation
+### Generate MRF graph and Apply Belief Propagation
 command 
 Input:
 Output:
 
-#### Extract top10 Final Structures using MaxHeap Tree:
+### Extract top10 Final Structures using MaxHeap Tree:
 command 
 Input:
 Output:
 
-#### Physics-based Refinement
+### Physics-based Refinement
 command
 Input:
 Output:
