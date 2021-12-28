@@ -8,6 +8,20 @@ License: GPL v3 for academic use. (For commercial use, please contact us for dif
 Contact: Daisuke Kihara (dkihara@purdue.edu)
 
 Cite:
+## Outline
+- Pre-required software
+    - Compile Source Code
+- Compile Source Code
+- Project Steps
+    - Generate simulated maps of subunits using EMAN2 package
+    - Run FFT Search
+    - Handle and Cluster FFT Search Results
+    - Compute Pairwise Scores of Pairs of Subunits
+    - Generate MRF graph and Apply Belief Propagation
+    - Extract top10 Final Structures using MaxHeap Tree
+    - Physics-based Refinement
+- Run an example
+    
 
 ## Pre-required software
 - Python 3 : https://www.python.org/downloads/
@@ -145,3 +159,10 @@ python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_
 
 ##### Output:
         PDB files of the refined top 10 structures of each subuint (subID_phy_refine_decoy_structure#.pdb)
+
+## Run an example:
+##### Command:
+```sh
+ ./ run.sh
+```
+run.sh file contains all the commands to geenrate top 10 refined structures of the target in the output folder.
