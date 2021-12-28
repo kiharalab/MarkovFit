@@ -166,3 +166,6 @@ python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_
  ./ run.sh
 ```
 run.sh file contains all the commands to geenrate top 10 refined structures of the target in the output folder.
+Expected_Output folder contains all output files of the example target. 
+- subunitID_decoy_MaxHeap_#.pdb: PDB structures before refinement.
+- subunitID_phy_refine_decoy_#.pdb : PDB structures after refinement.
