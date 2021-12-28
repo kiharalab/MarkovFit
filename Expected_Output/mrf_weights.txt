@@ -1,0 +1,19 @@
+Weights used for MAP estimation
+$singleton.weights
+$singleton.weights$CC
+[1] 0.5
+
+$singleton.weights$Overlap
+[1] 0.9
+
+
+$pairwise.weights
+$pairwise.weights$PhysicsScore
+[1] 1
+
+$pairwise.weights$no_clashes
+[1] 0.8
+
+
+attr(,"class")
+[1] "potential.collection.weights"
