@@ -11,7 +11,6 @@ Cite:
 ## Outline
 - Pre-required software
     - Compile Source Code
-- Compile Source Code
 - Project Steps
     - Generate simulated maps of subunits using EMAN2 package
     - Run FFT Search
@@ -19,7 +18,6 @@ Cite:
     - Compute Pairwise Scores of Pairs of Subunits
     - Generate MRF graph and Apply Belief Propagation
     - Extract top10 Final Structures using MaxHeap Tree
-    - Physics-based Refinement
 - Run an example
     
 
@@ -40,8 +38,6 @@ g++ handle_result.cc -o handle
 - Pairwise_Scores Folder:
 make pairwise_scores_mpi
 
-- Refinement Folder:
-make refine_mpi
 
 ## Project Steps:
 ### Generate simulated maps of subunits using EMAN2 package:
@@ -143,23 +139,6 @@ python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_
     PDB files of the top 10 structures of each subuint (subID_decoy_MaxHeap_structure#.pdb)
     File for each subunit containing subunit transformations of the top 10 structures (subID_clashesThreshold_MaxHeap.txt)
     
-### Physics-based Refinement
-##### Command:
-```sh
- mpirun -np no_processes ./Refinement/refine_mpi --input-pdb subunit1_pdb ... --input-pdb subunitN_pdb --labels A,B,C --transforms-file sub1_ID_400_MaxHeap.txt ... --transforms-file subN_ID_400_MaxHeap.txt --calpha main_pdb
-```
-##### Input:
-    -np:                    No of processes max=10
-    --input-pdb:            Subunit pdb files 
-    --labels:               List of subunits IDs separated by comma
-    --transforms-file:      Subunit MaxHeap result file
-    --calpha:               Native structure pdb file
-    --output-prefix:        Prefix for output files
-
-
-##### Output:
-        PDB files of the refined top 10 structures of each subuint (subID_phy_refine_decoy_structure#.pdb)
-
 ## Run an example:
 ##### Command:
 ```sh
@@ -168,5 +147,4 @@ python3 ./MaxHeap/max-heap.py --mrf-file prefix_top100.txt --clash-threshold no_
 run.sh file contains all the commands to geenrate top 10 refined structures of the target in the output folder.
 
 Expected_Output folder contains all output files of the example target. 
-- subunitID_decoy_MaxHeap_#.pdb: PDB structures before refinement.
-- subunitID_phy_refine_decoy_#.pdb : PDB structures after refinement.
+- subunitID_decoy_MaxHeap_#.pdb: PDB structures.
