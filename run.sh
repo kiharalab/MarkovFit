@@ -53,9 +53,5 @@ R --slave --vanilla --file=../MRF/mrf.R --args "operation='map'" "singletons=c('
 echo "MaxHeap"
 python3 ../MaxHeap/max-heap.py --mrf-file mrf_top100.txt --clash-threshold $no_clashes -dir ../Data/;
 
-#Refine
-echo "Physics-based Refinement"
-nohup mpirun -np $no_processes ../Refinement/refine_mpi --input-pdb $subunit1_pdb --input-pdb $subunit2_pdb --input-pdb $subunit3_pdb --labels A,B,C --transforms-file A_400_MaxHeap.txt --transforms-file B_400_MaxHeap.txt --transforms-file C_400_MaxHeap.txt --calpha $main_pdb --transforms-num 100;
-
 echo "Done!"
 $SHELL
