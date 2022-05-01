@@ -1,7 +1,7 @@
 # MarkovFit
 MarkovFit is A Protein Structural Modeling Method for Electron Microscopy Maps Using Markov Random Field.
 
-Copyright (C) 2022 Eman Alnabati, Genki Terashi, Juan Esquivel-Rodriguez, Daisuke Kihara, and Purdue University.
+Copyright (C) 2022 Eman Alnabati, Juan Esquivel-Rodriguez, Genki Terashi, Daisuke Kihara, and Purdue University.
 
 License: GPL v3 for academic use. (For commercial use, please contact us for different licensing.)
 
