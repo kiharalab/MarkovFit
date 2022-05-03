@@ -18,7 +18,7 @@ subunit3_pdb='../Data/C.pdb'
 
 main_contour_level=33
 sub_contour_level=33
-no_processes=20
+no_processes=4
 voxel_space=1
 
 map_type=2 #2: simulated, 1: experimental
